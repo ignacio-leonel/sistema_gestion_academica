@@ -10,11 +10,13 @@ def anotar_alumno_materia():
     alumno= ma.buscar_alumno_dni()
     print(f"seleccione la materia para anotar al alumno {alumno.nombre}{alumno.apellido}{alumno.dni}")
    
-    for materia in materias.length:
+    for materia in materias:
         print(materia.nombre)
         selector= int(input("ingrese la opcion deseada: "))
-    for materia in materias.length:
+        
+        
+    for materia in materias:
         if (selector==materia.codigo ):
-            carrera.materias.append(materia)
+                carrera.materias.add(materia)
 
 

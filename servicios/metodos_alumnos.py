@@ -1,5 +1,5 @@
 from modelos.alumnos import Alumno 
-from datos.alumnos import alumnos
+from datos.conexion import conexion
 
 def crear_alumno():
     legajo= input("ingrese el legajo: ")
@@ -17,23 +17,40 @@ def crear_alumno():
 
 def mostrar_alumnos():
 
-    for alumno in alumnos.values():
-        print(f"Legajo: {alumno.legajo}, Nombre: {alumno.nombre}, Apellido: {alumno.apellido}, Carrera: {alumno.carrera.nombre}")
+    conn = conexion()
+    cursor = conn.cursor()
+    
+    # Ejecutamos la consulta para obtener todos los alumnos
+    cursor.execute("SELECT * FROM alumnos")
+    
+    # Obtenemos todos los resultados
+    resultados = cursor.fetchall()
 
+    if resultados:  # Comprobamos si hay resultados
+        print("Alumnos encontrados:")
+        for alumno in resultados:
+            # Imprimir cada alumno en formato legible
+            print(f"Legajo: {alumno[0]}, Nombre: {alumno[1]}, Apellido: {alumno[2]}, DNI: {alumno[3]}, Carrera: {alumno[4]}")
+           
+    else:
+        print("No se encontraron alumnos")
+
+    return resultados  # Devolvemos la lista de alumnos
 
 def buscar_alumno_dni():
-    encontrado=False
-    dni=int(input("ingrese el dni"))
-    for alumno in alumnos.values(): 
-        if alumno.dni == dni:
-            print(f"El alumno con DNI {dni} es {alumno.nombre} {alumno.apellido}")
-            encontrado = True
-            break
+    conn = conexion()
+    cursor = conn.cursor()
+    
+    dni_buscado = input("Ingrese el DNI del alumno: ")
+    cursor.execute("SELECT * FROM alumnos WHERE dni = ?", (dni_buscado,))
+    resultado = cursor.fetchone()  # Aquí guardamos el resultado de la consulta
 
-    if not encontrado:
-        print("DNI no encontrado.")
+    if resultado:  # Comprobamos si hay un alumno en los resultados
+        print("Alumno encontrado:", resultado)
+    else:
+        print("No se encontró un alumno con ese DNI.")
 
-    return alumno()
+    return resultado  # Devolvemos el resultado (no la variable 'alumno')
 
 def buscar_alumno_carrera():
 
@@ -51,3 +68,11 @@ def buscar_alumno_carrera():
     if not encontrado:
         print("carrera no encontrada o sin alumnos.")
 
+def modificar_alumno():
+    buscar_alumno_dni()
+    
+    opcion= int(input("elija la opcion que desea modificar: "))
+    
+
+    
+    

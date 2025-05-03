@@ -1,21 +1,27 @@
-#importacion e modelos
+#esto es a modo de prueba para estructurar bien cada parte del desarrollo
+# la idea es de que luego, al ingresar el usuario y contraseña el sistema 
+# reconozca el tipo de usuario y muestre el menu correspondiente.
+from menus.menu_admin import menu_admin 
+from menus.menu_docente import menu_docente 
+from menus.menu_estudiante import menu_estudiante
 
-from modelos.alumnos import Alumno
-from modelos.usuarios import Usuario
-from modelos.carreras import Carrera
+print("Sistema de Gestión Estudiantil")
 
-#importacion de datos
-
-from datos.materias import materias
-from datos.alumnos import alumnos
+print("opcion 1: Administrador")
+print("opcion 2: Docente")
+print("opcion 3: Estudiante")
 
 
-#importacion de metodos
-import servicios.metodos_alumnos as ma
-import servicios.metodos_carreras as mc
-#ma.crear_alumno()
-#ma.buscar_alumno_dni()
-#ma.mostrar_alumnos()
-#ma.buscar_alumno_carrera()
+rol = int(input("Seleccione su tipo de Usuario (1: Administrador, 2: Docente, 3: Estudiante): "))
 
-mc.anotar_alumno_materia()
+while rol not in [1, 2, 3]:
+    print("Opción inválida. Intenta de nuevo.")
+   
+    rol = int(input("Seleccione su tipo de Usuario (1: Administrador, 2: Docente, 3: Estudiante): "))
+
+if rol == 1:
+        menu_admin()
+elif rol == 2:
+        menu_docente()
+elif rol == 3:
+        menu_estudiante()
