@@ -12,8 +12,6 @@ El sistema contará con distintos permisos según el tipo de usuario:
 
 ---
 
----
-
 ## ✅ Funcionalidades implementadas
 
 - 📋 **Alta de alumno**
