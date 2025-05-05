@@ -2,6 +2,16 @@
 
 Este es un sistema en desarrollo para gestionar alumnos, carreras y materias en una institución académica. Está construido con Python, utilizando principios de programación estructurada y orientada a objetos, y cuenta con persistencia de datos mediante SQLite.
 
+# 👥 Roles de usuario (en planificación)
+
+El sistema contará con distintos permisos según el tipo de usuario:
+
+- 👨‍💼 **Administrador**: acceso completo a todas las funciones (altas, bajas, modificaciones y reportes).
+- 👩‍🏫 **Docente**: podrá ver la lista de alumnos y cargar/modificar notas.
+- 👨‍🎓 **Alumno**: acceso restringido solo a su propia información (estado académico, materias, etc.).
+
+---
+
 ---
 
 ## ✅ Funcionalidades implementadas
