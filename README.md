@@ -27,4 +27,39 @@ Este es un sistema en desarrollo para gestionar alumnos, carreras y materias en 
 ---
 
 ## 📂 Estructura del proyecto
+sistema_gestion_academica/
+│
+├── base_datos/
+│ └── conexion.py
+│
+├── funciones/
+│ ├── alumnos.py
+│ └── validaciones.py
+│
+├── main.py
+└── README.md
+
+
+
+
+---
+
+## ⚙️ Tecnologías utilizadas
+
+- Python 3.x
+- SQLite
+- Visual Studio Code
+
+---
+
+## 💡 Autor
+
+Ignacio Leonel – [LinkedIn](https://www.linkedin.com/in/ignacio-leonel/)  
+Repositorio: [GitHub](https://github.com/ignacio-leonel/sistema_gestion_academica)
+
+---
+
+## ✉️ Contacto
+
+> Si estás buscando a alguien comprometido con el aprendizaje continuo y la mejora constante, ¡no dudes en escribirme!
 
